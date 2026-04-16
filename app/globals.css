@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  /* RockNext Brand Colors */
+  --rock-primary: #1a1a2e;
+  --rock-secondary: #16213e;
+  --rock-accent: #0f3460;
+  --rock-highlight: #e94560;
+  --rock-gold: #ffd700;
+  --rock-silver: #c0c0c0;
+  --rock-text: #f5f5f5;
+  --rock-muted: #a0a0a0;
+  
+  /* JamZia Attribution (subtle) */
+  --jz-navy: #081F5C;
+  --jz-blue: #7096D1;
+  
+  /* Status Colors */
+  --status-operational: #22C55E;
+  --status-degraded: #F59E0B;
+  --status-down: #DC2626;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--rock-primary);
+  color: var(--rock-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(22, 33, 62, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rock-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rock-highlight);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* RockNext Brand Elements */
+.brand-gradient {
+  background: linear-gradient(135deg, var(--rock-primary) 0%, var(--rock-secondary) 100%);
+}
+
+.brand-accent {
+  color: var(--rock-highlight);
+}
+
+.powered-by {
+  font-size: 11px;
+  color: var(--rock-muted);
+  letter-spacing: 0.5px;
+}
+
+.powered-by strong {
+  color: var(--jz-blue);
+  font-weight: 600;
+}
