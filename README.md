@@ -1,18 +1,17 @@
 # JamZia™ v1.0 — The Everything App
 
-**Live Site:** https://ad9xholdings.github.io/jamzia-community/
+**Live Site:** https://www.jamzia.tv
 
-## Design System: Black Diamond
+## Design System
 
-| Token | Hex | Usage |
+| Order | Hex | Usage |
 |-------|-----|-------|
-| Background | `#000000` | Page background |
-| Text | `#FFFFFF` | Primary text |
-| Navy | `#081F5C` | Headers, borders, accents |
-| Blue | `#7096D1` | Interactive elements, links |
-| Ice | `#D0E3FF` | Hover states, highlights |
-| Light | `#EDF1F6` | Subtle backgrounds |
-| Warm | `#F7F2EB` | CTAs, primary buttons |
+| 1 | #000000 | Black — Background |
+| 2 | #081F5C | Navy — Headers, borders |
+| 3 | #7096D1 | Blue — Interactive elements |
+| 4 | #EDF1F6 | Light — Subtle backgrounds |
+| 5 | #D0E3FF | Ice — Hover states |
+| 6 | #F7F2EB | Warm — CTAs, buttons |
 
 ## Architecture: Layer 1 + Layer 2
 
@@ -44,7 +43,7 @@
 /
 ├── index.html          # Main landing (SORME™ + Layer 1/2)
 ├── css/
-│   └── jamzia.css      # Black Diamond design tokens
+│   └── jamzia.css      # Design tokens
 ├── js/
 │   └── jamzia.js       # StateManager + AppState
 ├── jamvideo/
@@ -67,3 +66,4 @@ All files are static HTML/CSS/JS — no build step required.
 ## License
 
 © 2026 JamZia™ — All rights reserved.
+www.jamzia.tv
