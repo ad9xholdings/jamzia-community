@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JamZia™ — The Everything App | SORME™ AI Search</title>
-  <meta name="description" content="JamZia™ — The Everything App. Video, Audio, Gaming, Learning & more. SORME™ AI-powered capital markets search engine.">
+  <meta name="description" content="JamZia™ — The Everything App. Video, Audio, Gaming, Learning & more.">
   <link rel="stylesheet" href="css/jamzia.css">
   <style>
     :root {
@@ -606,43 +606,14 @@
   </div>
 
   <section class="hero">
-    <!-- SORME AI Search -->
+    <!-- Search -->
     <div class="sorme-container">
-      <div class="sorme-title">Sovereign Object Resource Matching Engine</div>
-      <div class="sorme-brand">SORME<span>™</span></div>
-      <div class="sorme-tagline">AI-powered capital markets intelligence</div>
+      <div class="sorme-brand">JamZia<span>™</span></div>
+      <div class="sorme-tagline">The Everything App</div>
       
-      <div class="sorme-mantra">
-        <div class="mantra-item">
-          <span class="icon">📤</span>
-          <span>OFFER</span>
-        </div>
-        <div class="mantra-item">
-          <span class="icon">📥</span>
-          <span>REQUEST</span>
-        </div>
-        <div class="mantra-item">
-          <span class="icon">🔗</span>
-          <span>MATCH</span>
-        </div>
-        <div class="mantra-item">
-          <span class="icon">⚙️</span>
-          <span>ENGINE</span>
-        </div>
-      </div>
-
       <div class="search-box">
-        <input type="text" placeholder="Search NMTC projects, investors, real world assets..." id="sormeSearch">
-        <button class="search-btn" onclick="searchSORME()">SORME™ Search</button>
-      </div>
-
-      <div class="search-categories">
-        <button class="category-btn active" onclick="setCategory(this, 'all')">All</button>
-        <button class="category-btn" onclick="setCategory(this, 'nmtc')">NMTC</button>
-        <button class="category-btn" onclick="setCategory(this, 'investors')">Investors</button>
-        <button class="category-btn" onclick="setCategory(this, 'rwa')">Real World Assets</button>
-        <button class="category-btn" onclick="setCategory(this, 'minerals')">Minerals</button>
-        <button class="category-btn" onclick="setCategory(this, 'trade')">Trade Finance</button>
+        <input type="text" placeholder="Search platforms, content, creators..." id="jamziaSearch">
+        <button class="search-btn" onclick="searchJamZia()">Search</button>
       </div>
     </div>
 
@@ -784,16 +755,9 @@
       }
     }
 
-    // Category filter
-    function setCategory(btn, category) {
-      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      console.log('[SORME™] Category:', category);
-    }
-
     // Enter key for search
-    document.getElementById('sormeSearch').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') searchSORME();
+    document.getElementById('jamziaSearch').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') searchJamZia();
     });
   </script>
 </body>
