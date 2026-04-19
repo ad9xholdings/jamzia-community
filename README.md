@@ -2,6 +2,16 @@
 
 **Live Site:** https://www.jamzia.tv
 
+## 🚀 One-Click Deploy
+
+Deploy your own JamZia™ instance instantly:
+
+| Platform | Button |
+|----------|--------|
+| **Vercel** | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ad9xholdings/jamzia-community) |
+| **Netlify** | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ad9xholdings/jamzia-community) |
+| **Cloudflare Pages** | [![Deploy to Cloudflare Pages](https://deploy.pages.dev/button.svg)](https://deploy.pages.dev/?url=https://github.com/ad9xholdings/jamzia-community) |
+
 ## Design System
 
 | Order | Hex | Usage |
@@ -36,16 +46,22 @@
 - ✅ **Grayscale Logos** — Hover to reveal color
 - ✅ **Mobile Responsive** — Hamburger menu, stacked layouts
 - ✅ **All Links Functional** — 9 MFC subpages with back navigation
+- ✅ **SPA Routing** — `.htaccess` + `_redirects` for clean URLs
+- ✅ **Cloudflare Ready** — SSL, caching, DNS config included
 
 ## File Structure
 
 ```
 /
 ├── index.html          # Main landing (SORME™ + Layer 1/2)
+├── vercel.json         # Vercel SPA routing config
+├── _redirects          # Netlify/Cloudflare SPA routing
+├── .htaccess           # Apache SPA routing + gzip + cache
 ├── css/
 │   └── jamzia.css      # Design tokens
 ├── js/
 │   └── jamzia.js       # StateManager + AppState
+├── storage/            # Storj.io + Clark Cotton Music upload
 ├── jamvideo/
 │   └── index.html      # Layer 1 Primary
 ├── jamaudio/
@@ -59,9 +75,31 @@
 └── jamcloud/           # Layer 2
 ```
 
+## 🌐 Custom Domain Setup
+
+### Cloudflare DNS
+
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| CNAME | @ | `your-deployment-url` | 🟠 ON |
+| CNAME | www | `your-deployment-url` | 🟠 ON |
+
+### SSL/TLS Settings
+- Encryption mode: **Full (strict)**
+- Always Use HTTPS: **ON**
+- Automatic HTTPS Rewrites: **ON**
+
 ## Development
 
 All files are static HTML/CSS/JS — no build step required.
+
+```bash
+# Local development
+npx serve .
+
+# Or Python
+python3 -m http.server 3000
+```
 
 ## License
 
