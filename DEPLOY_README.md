@@ -8,34 +8,33 @@ Only the files needed to run JamZia.TV as a static site on any Apache host:
 htdocs/
 ├── index.html              ← Main landing page
 ├── .htaccess              ← Apache routing
-├── _redirects             ← SPA fallback rules
-├── vercel.json            ← Vercel deployment config
-├── README.md              ← This file
+├── README.md              ← Project readme
+├── DEPLOY_README.md       ← This file
 ├── css/
 │   └── jamzia.css         ← Stylesheet
 ├── js/
 │   └── jamzia.js          ← JavaScript state manager
-├── jamvideo/
-│   └── index.html         ← JamVideo™ Universe
-├── jamaudio/
-│   └── index.html         ← JamAudio™ Universe
-├── jamplay/
-│   └── index.html         ← JamPlay™ Universe
-├── jamlearn/
-│   └── index.html         ← JamLearn™ Universe
-├── jamsocial/
-│   └── index.html         ← JamSocial™ Universe
-├── jamads/
-│   └── index.html         ← JamAds™ Universe
-├── jampay/
-│   └── index.html         ← JamPay™ Universe
-├── jamshop/
-│   └── index.html         ← JamShop™ Universe
-└── jamcloud/
-    └── index.html         ← JamCloud™ Universe
+├── jamvideo/              ← JamVideo™ Universe
+│   └── index.html
+├── jamaudio/              ← JamAudio™ Universe
+│   └── index.html
+├── jamplay/               ← JamPlay™ Universe
+│   └── index.html
+├── jamlearn/              ← JamLearn™ Universe
+│   └── index.html
+├── jamsocial/             ← JamSocial™ Universe
+│   └── index.html
+├── jamads/                ← JamAds™ Universe
+│   └── index.html
+├── jampay/                ← JamPay™ Universe
+│   └── index.html
+├── jamshop/               ← JamShop™ Universe
+│   └── index.html
+└── jamcloud/              ← JamCloud™ Universe
+    └── index.html
 ```
 
-**Total: 15 files, ~30KB compressed**
+**Total: 17 files, ~168KB uncompressed, ~34KB zipped**
 
 ## Upload to Network Solutions /htdocs
 
@@ -62,7 +61,7 @@ Upload the contents of this folder directly into `/htdocs/`:
 
 | URL | What to see |
 |-----|-------------|
-| `https://jamzia.tv/` | Main page with SORME™ search, platform grid |
+| `https://jamzia.tv/` | Main page with platform grid |
 | `https://jamzia.tv/jamvideo/` | JamVideo™ Universe |
 | `https://jamzia.tv/jamaudio/` | JamAudio™ Universe |
 | `https://jamzia.tv/jamplay/` | JamPlay™ Universe |
@@ -80,8 +79,8 @@ Upload the contents of this folder directly into `/htdocs/`:
 
 | Repo | Purpose | URL |
 |------|---------|-----|
-| `jamzia-tv` | Static site for NS/Vercel | https://github.com/ad9xholdings/jamzia-tv |
-| `jamzia-community` | Clean version (master branch) | https://github.com/ad9xholdings/jamzia-community |
+| `jamzia-community` | Clean static site | https://github.com/ad9xholdings/jamzia-community |
+| `jamzia-tv` | Mirror (synced) | https://github.com/ad9xholdings/jamzia-tv |
 
 ## What was removed (not needed)
 
@@ -91,5 +90,6 @@ Upload the contents of this folder directly into `/htdocs/`:
 | `apps/`, `apps-content/` | Empty/unused directories |
 | `automation/`, `reports/`, `subscription/` | Old project artifacts |
 | `.turbo/` | 87MB build cache — regenerable |
+| `vercel.json`, `_redirects` | Vercel account cancelled |
 
 These files are NOT in GitHub and should NOT be uploaded to `/htdocs/`.
