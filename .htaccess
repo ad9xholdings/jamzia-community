@@ -1,38 +1,22 @@
+# JamZia.TV — Network Solutions Compatible .htaccess
+# Simplified for shared hosting — no restricted modules
+
+# Enable rewrite engine
 RewriteEngine On
 
-# Enable rewrite
-RewriteBase /
-
-# Redirect HTTP to HTTPS (when not behind Cloudflare)
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
-# SPA Routing - redirect all non-file/directory requests to index.html
+# Route /jamvideo to /jamvideo/index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule ^jamvideo/?$ jamvideo/index.html [L]
 
-# Enable CORS
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-</IfModule>
+RewriteRule ^jamaudio/?$ jamaudio/index.html [L]
+RewriteRule ^jamplay/?$ jamplay/index.html [L]
+RewriteRule ^jamlearn/?$ jamlearn/index.html [L]
+RewriteRule ^jamsocial/?$ jamsocial/index.html [L]
+RewriteRule ^jamads/?$ jamads/index.html [L]
+RewriteRule ^jampay/?$ jampay/index.html [L]
+RewriteRule ^jamshop/?$ jamshop/index.html [L]
+RewriteRule ^jamcloud/?$ jamcloud/index.html [L]
 
-# Compress text files
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/json
-</IfModule>
-
-# Cache static assets
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/svg+xml "access plus 1 month"
-    ExpiresByType text/css "access plus 1 week"
-    ExpiresByType application/javascript "access plus 1 week"
-</IfModule>
+# Custom 404 page
+ErrorDocument 404 /index.html
