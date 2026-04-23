@@ -1,3 +1,42 @@
+// Global toast notification system
+function showToast(message, type = 'info') {
+  let toast = document.getElementById('jamzia-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'jamzia-toast';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #081F5C;
+      color: #D0E3FF;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: 1px solid #7096D1;
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 9999;
+      opacity: 0;
+      transition: all 0.3s ease;
+      max-width: 90vw;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    `;
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+  });
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(100px)';
+  }, 3000);
+}
+
 // JamZia™ v1.0 — Java-style State Management
 // AppState enum and StateManager class
 
@@ -92,7 +131,19 @@ class StateManager {
 
   navigateToUniverse(universe) {
     this.transition(AppState.UNIVERSE, universe);
-    window.location.href = `/${universe.toLowerCase().replace('jam', '')}/`;
+    const universeMap = {
+      'JamVideo': 'jamvideo',
+      'JamAudio': 'jamaudio',
+      'JamPlay': 'jamplay',
+      'JamLearn': 'jamlearn',
+      'JamSocial': 'jamsocial',
+      'JamAds': 'jamads',
+      'JamPay': 'jampay',
+      'JamShop': 'jamshop',
+      'JamCloud': 'jamcloud'
+    };
+    const path = universeMap[universe] || universe.toLowerCase();
+    window.location.href = `/${path}/`;
   }
 
   navigateToPlatform(platform) {

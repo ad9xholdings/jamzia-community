@@ -70,6 +70,14 @@
 
     .btn-login:hover { background: var(--navy); }
 
+    /* Focus visible for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--warm);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     .btn-warm {
       background: var(--warm);
       color: var(--navy);
@@ -230,28 +238,28 @@
   </div>
 
   <div class="platforms">
-    <a href="#" class="platform-card" onclick="alert('🏫 Launching JamAcademy™...')">
+    <a href="#" class="platform-card" onclick="showToast('🏫 Launching JamAcademy™...'); return false;">
       <div class="icon">🏫</div>
       <h3>JamAcademy™</h3>
       <p>AR phonics & educational platform</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🛤️ Launching JamPath™...')">
+    <a href="#" class="platform-card" onclick="showToast('🛤️ Launching JamPath™...'); return false;">
       <div class="icon">🛤️</div>
       <h3>JamPath™</h3>
       <p>Cotton Brick Road 11-level journey</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🛠️ Launching JamSkills™...')">
+    <a href="#" class="platform-card" onclick="showToast('🛠️ Launching JamSkills™...'); return false;">
       <div class="icon">🛠️</div>
       <h3>JamSkills™</h3>
       <p>Professional skill development</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🌍 Launching JamLang™...')">
+    <a href="#" class="platform-card" onclick="showToast('🌍 Launching JamLang™...'); return false;">
       <div class="icon">🌍</div>
       <h3>JamLang™</h3>
       <p>Language learning platform</p>

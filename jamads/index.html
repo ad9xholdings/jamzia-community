@@ -70,6 +70,14 @@
 
     .btn-login:hover { background: var(--navy); }
 
+    /* Focus visible for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--warm);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     .btn-warm {
       background: var(--warm);
       color: var(--navy);
@@ -230,28 +238,28 @@
   </div>
 
   <div class="platforms">
-    <a href="#" class="platform-card" onclick="alert('🎯 Launching JamJams™...')">
+    <a href="#" class="platform-card" onclick="showToast('🎯 Launching JamJams™...'); return false;">
       <div class="icon">🎯</div>
       <h3>JamJams™</h3>
       <p>Ad serving engine</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('📊 Launching JamCampaign™...')">
+    <a href="#" class="platform-card" onclick="showToast('📊 Launching JamCampaign™...'); return false;">
       <div class="icon">📊</div>
       <h3>JamCampaign™</h3>
       <p>Advertiser dashboard</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🎪 Launching JamTarget™...')">
+    <a href="#" class="platform-card" onclick="showToast('🎪 Launching JamTarget™...'); return false;">
       <div class="icon">🎪</div>
       <h3>JamTarget™</h3>
       <p>Audience targeting tools</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('📈 Launching JamReport™...')">
+    <a href="#" class="platform-card" onclick="showToast('📈 Launching JamReport™...'); return false;">
       <div class="icon">📈</div>
       <h3>JamReport™</h3>
       <p>Analytics & reporting</p>

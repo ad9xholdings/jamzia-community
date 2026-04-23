@@ -249,6 +249,20 @@
       background: rgba(112,150,209,0.1);
     }
 
+    /* Focus visible for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--warm);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .search-box input:focus-visible {
+      outline: none;
+      border-color: var(--blue);
+    }
+
     /* Stats Bar */
     .stats-bar {
       display: flex;
@@ -746,13 +760,50 @@
       document.getElementById('mobileNav').classList.toggle('active');
     }
 
-    // SORME search
-    function searchSORME() {
-      const query = document.getElementById('sormeSearch').value;
+    // JamZia search
+    function searchJamZia() {
+      const query = document.getElementById('jamziaSearch').value;
       if (query) {
-        console.log('[SORME™] Searching:', query);
-        alert(`🔍 SORME™ AI Search\n\nQuery: "${query}"\n\n47 matches found in capital markets database\n\n1. NMTC Project - $45M allocation\n2. Investor Profile - Alpha Capital\n3. Real World Asset - Commercial RE\n...`);
+        showToast(`🔍 Searching: "${query}" — 47 matches found`, 'info');
       }
+    }
+
+    // Toast notification system
+    function showToast(message, type = 'info') {
+      let toast = document.getElementById('jamzia-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'jamzia-toast';
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 24px;
+          left: 50%;
+          transform: translateX(-50%) translateY(100px);
+          background: var(--navy);
+          color: var(--ice);
+          padding: 14px 28px;
+          border-radius: 8px;
+          border: 1px solid var(--blue);
+          font-size: 0.9rem;
+          font-weight: 500;
+          z-index: 9999;
+          opacity: 0;
+          transition: all 0.3s ease;
+          max-width: 90vw;
+          text-align: center;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        `;
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      requestAnimationFrame(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+      });
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(100px)';
+      }, 3000);
     }
 
     // Enter key for search

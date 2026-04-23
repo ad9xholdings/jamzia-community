@@ -70,6 +70,14 @@
 
     .btn-login:hover { background: var(--navy); }
 
+    /* Focus visible for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--warm);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     .btn-warm {
       background: var(--warm);
       color: var(--navy);
@@ -230,28 +238,28 @@
   </div>
 
   <div class="platforms">
-    <a href="#" class="platform-card" onclick="alert('👛 Launching JamWallet™...')">
+    <a href="#" class="platform-card" onclick="showToast('👛 Launching JamWallet™...'); return false;">
       <div class="icon">👛</div>
       <h3>JamWallet™</h3>
       <p>User wallet & balances</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🏛️ Launching JamTreasury™...')">
+    <a href="#" class="platform-card" onclick="showToast('🏛️ Launching JamTreasury™...'); return false;">
       <div class="icon">🏛️</div>
       <h3>JamTreasury™</h3>
       <p>DAO treasury management</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('📤 Launching JamSend™...')">
+    <a href="#" class="platform-card" onclick="showToast('📤 Launching JamSend™...'); return false;">
       <div class="icon">📤</div>
       <h3>JamSend™</h3>
       <p>P2P payments & transfers</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('💳 Launching JamCard™...')">
+    <a href="#" class="platform-card" onclick="showToast('💳 Launching JamCard™...'); return false;">
       <div class="icon">💳</div>
       <h3>JamCard™</h3>
       <p>Digital debit & credit</p>

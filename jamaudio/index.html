@@ -70,6 +70,14 @@
 
     .btn-login:hover { background: var(--navy); }
 
+    /* Focus visible for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--warm);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     .btn-warm {
       background: var(--warm);
       color: var(--navy);
@@ -234,42 +242,42 @@
   </div>
 
   <div class="platforms">
-    <a href="#" class="platform-card" onclick="alert('🎵 Launching JamMusic™...')">
+    <a href="#" class="platform-card" onclick="showToast('🎵 Launching JamMusic™...'); return false;">
       <div class="icon">🎵</div>
       <h3>JamMusic™</h3>
       <p>Music streaming & discovery — 100M+ songs, the flagship audio experience</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🎙️ Launching JamCast™...')">
+    <a href="#" class="platform-card" onclick="showToast('🎙️ Launching JamCast™...'); return false;">
       <div class="icon">🎙️</div>
       <h3>JamCast™</h3>
       <p>Podcasts & creator audio content</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('📻 Launching JamRadio™...')">
+    <a href="#" class="platform-card" onclick="showToast('📻 Launching JamRadio™...'); return false;">
       <div class="icon">📻</div>
       <h3>JamRadio™</h3>
       <p>Live radio & talk shows from around the world</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🥁 Launching JamBeats™...')">
+    <a href="#" class="platform-card" onclick="showToast('🥁 Launching JamBeats™...'); return false;">
       <div class="icon">🥁</div>
       <h3>JamBeats™</h3>
       <p>Producer tools & beat marketplace</p>
       <span class="status beta">● BETA</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('📚 Launching JamBooks™...')">
+    <a href="#" class="platform-card" onclick="showToast('📚 Launching JamBooks™...'); return false;">
       <div class="icon">📚</div>
       <h3>JamBooks™</h3>
       <p>Audiobooks & spoken word content</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🎶 Launching JamSound™...')">
+    <a href="#" class="platform-card" onclick="showToast('🎶 Launching JamSound™...'); return false;">
       <div class="icon">🎶</div>
       <h3>JamSound™</h3>
       <p>Sound effects & meditation audio</p>

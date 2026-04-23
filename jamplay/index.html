@@ -70,6 +70,14 @@
 
     .btn-login:hover { background: var(--navy); }
 
+    /* Focus visible for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--warm);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     .btn-warm {
       background: var(--warm);
       color: var(--navy);
@@ -230,28 +238,28 @@
   </div>
 
   <div class="platforms">
-    <a href="#" class="platform-card" onclick="alert('⚔️ Launching JamBattle™...')">
+    <a href="#" class="platform-card" onclick="showToast('⚔️ Launching JamBattle™...'); return false;">
       <div class="icon">⚔️</div>
       <h3>JamBattle™</h3>
       <p>AR gaming & competitive tournaments</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🕹️ Launching JamArcade™...')">
+    <a href="#" class="platform-card" onclick="showToast('🕹️ Launching JamArcade™...'); return false;">
       <div class="icon">🕹️</div>
       <h3>JamArcade™</h3>
       <p>Casual games & retro gaming</p>
       <span class="status">● LIVE</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🗡️ Launching JamQuest™...')">
+    <a href="#" class="platform-card" onclick="showToast('🗡️ Launching JamQuest™...'); return false;">
       <div class="icon">🗡️</div>
       <h3>JamQuest™</h3>
       <p>RPG and adventure gaming</p>
       <span class="status">● BETA</span>
     </a>
 
-    <a href="#" class="platform-card" onclick="alert('🃏 Launching JamCards™...')">
+    <a href="#" class="platform-card" onclick="showToast('🃏 Launching JamCards™...'); return false;">
       <div class="icon">🃏</div>
       <h3>JamCards™</h3>
       <p>Digital trading cards & collectibles</p>
