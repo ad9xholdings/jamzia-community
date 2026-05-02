@@ -5,239 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JamCloud™ — Storage & Compute | JamZia</title>
   <meta name="description" content="Cloud storage, compute, CDN and security services on JamCloud™ — Layer 2 of JamZia, The Everything App.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23081F5C' rx='12'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='%23F7F2EB' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-weight='800'%3EJ%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="JamCloud™ — Storage & Compute | JamZia">
+  <meta property="og:description" content="Cloud storage, compute, CDN and security services — infrastructure for creators.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.jamzia.tv/jamcloud/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JamCloud™ — Storage & Compute">
+  <meta name="twitter:description" content="Cloud storage, compute, CDN and security services — infrastructure for creators.">
   <link rel="stylesheet" href="/css/jamzia.css">
-  <style>
-    :root {
-      --bg-primary: #000000;
-      --text-primary: #FFFFFF;
-      --navy: #081F5C;
-      --blue: #7096D1;
-      --ice: #D0E3FF;
-      --warm: #F7F2EB;
-      --gray-400: #a3a3a3;
-      --gray-500: #737373;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 70px;
-      padding: 0 24px;
-      background: rgba(0,0,0,0.95);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--navy);
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      text-decoration: none;
-    }
-
-    .logo span { color: var(--warm); }
-
-    .nav-cta-group {
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn-login {
-      background: transparent;
-      color: var(--ice);
-      border: 2px solid var(--blue);
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .btn-login:hover { background: var(--navy); }
-
-    /* Focus visible for keyboard navigation */
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--warm);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    .btn-warm {
-      background: var(--warm);
-      color: var(--navy);
-      border: none;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .btn-warm:hover { background: #e8dcc8; }
-
-    .hero {
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 120px 24px 60px;
-      background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(8,31,92,0.3) 100%);
-    }
-
-    .hero-icon {
-      font-size: 5rem;
-      margin-bottom: 20px;
-      filter: grayscale(100%);
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 span { color: var(--blue); }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--gray-400);
-      max-width: 600px;
-    }
-
-    .layer2-badge {
-      background: var(--navy);
-      color: var(--blue);
-      padding: 6px 16px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      border: 1px solid var(--blue);
-    }
-
-    .platforms {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px;
-    }
-
-    .platform-card {
-      background: rgba(8,31,92,0.2);
-      border: 1px solid var(--navy);
-      border-radius: 12px;
-      padding: 28px;
-      text-align: center;
-      transition: all 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .platform-card:hover {
-      border-color: var(--blue);
-      background: rgba(8,31,92,0.4);
-      transform: translateY(-4px);
-    }
-
-    .platform-card .icon {
-      font-size: 2.5rem;
-      margin-bottom: 12px;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s;
-    }
-
-    .platform-card:hover .icon {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
-
-    .platform-card h3 {
-      color: var(--blue);
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .platform-card p {
-      color: var(--gray-500);
-      font-size: 0.9rem;
-    }
-
-    .status {
-      display: inline-block;
-      background: #00ff88;
-      color: #000;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      margin-top: 12px;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin: 40px;
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer {
-      padding: 40px 24px;
-      text-align: center;
-      border-top: 1px solid var(--navy);
-      margin-top: 60px;
-    }
-
-    footer p {
-      color: var(--gray-500);
-      font-size: 0.85rem;
-    }
-
-    footer .sub {
-      margin-top: 8px;
-      font-size: 0.75rem;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/jamzia-modules.css">
 </head>
 <body>
   <header>
     <a href="/" class="logo">JamZia<span>™</span></a>
+    <nav class="module-nav">
+      <a href="/jamvideo/">Video</a>
+      <a href="/jamaudio/">Audio</a>
+      <a href="/jamplay/">Play</a>
+      <a href="/jamlearn/">Learn</a>
+      <a href="/jamsocial/">Social</a>
+      <a href="/jamads/">Ads</a>
+      <a href="/jampay/">Pay</a>
+      <a href="/jamshop/">Shop</a>
+      <a href="/jamcloud/" class="active">Cloud</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="nav-cta-group">
+        <button class="btn-login" onclick="stateManager.login()">Login</button>
+        <button class="btn-warm" onclick="stateManager.toggleAccess()">Get Access Now</button>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileNav()">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/jamvideo/">Video</a>
+    <a href="/jamaudio/">Audio</a>
+    <a href="/jamplay/">Play</a>
+    <a href="/jamlearn/">Learn</a>
+    <a href="/jamsocial/">Social</a>
+    <a href="/jamads/">Ads</a>
+    <a href="/jampay/">Pay</a>
+    <a href="/jamshop/">Shop</a>
+    <a href="/jamcloud/" class="active">Cloud</a>
     <div class="nav-cta-group">
       <button class="btn-login" onclick="stateManager.login()">Login</button>
       <button class="btn-warm" onclick="stateManager.toggleAccess()">Get Access Now</button>
     </div>
-  </header>
+  </div>
 
-  <div class="hero">
+  <div class="hero layer2-hero">
     <div class="hero-icon">☁️</div>
     <span class="layer2-badge">Layer 2 Ecosystem</span>
     <h1 style="margin-top: 16px;">Jam<span>Cloud</span>™</h1>
     <p>Storage, compute, CDN & security services — infrastructure for creators</p>
   </div>
 
-  <div class="platforms">
+  <div class="platforms layer2-platforms">
     <a href="#" class="platform-card" onclick="showToast('📦 Launching JamStorage™...'); return false;">
       <div class="icon">📦</div>
       <h3>JamStorage™</h3>

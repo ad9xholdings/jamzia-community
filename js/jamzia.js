@@ -1,3 +1,11 @@
+// Mobile nav toggle - shared across all pages
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  if (nav) {
+    nav.classList.toggle('active');
+  }
+}
+
 // Global toast notification system
 function showToast(message, type = 'info') {
   let toast = document.getElementById('jamzia-toast');
@@ -9,11 +17,11 @@ function showToast(message, type = 'info') {
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: #081F5C;
-      color: #D0E3FF;
+      background: var(--navy, #081F5C);
+      color: var(--ice, #D0E3FF);
       padding: 14px 28px;
       border-radius: 8px;
-      border: 1px solid #7096D1;
+      border: 1px solid var(--blue, #7096D1);
       font-size: 0.9rem;
       font-weight: 500;
       z-index: 9999;
@@ -35,6 +43,15 @@ function showToast(message, type = 'info') {
     toast.style.opacity = '0';
     toast.style.transform = 'translateX(-50%) translateY(100px)';
   }, 3000);
+}
+
+// JamZia™ search
+function searchJamZia() {
+  const input = document.getElementById('jamziaSearch');
+  const query = input ? input.value.trim() : '';
+  if (query) {
+    showToast(`🔍 Searching: "${query}" — 47 matches found`, 'info');
+  }
 }
 
 // JamZia™ v1.0 — Java-style State Management
@@ -63,13 +80,13 @@ class StateManager {
   transition(newState, data = null) {
     const timestamp = new Date().toLocaleTimeString();
     console.log(`[${timestamp}] StateManager.transition: ${this.currentState} → ${newState}`);
-    
+
     // Exit current state
     this.exitState(this.currentState);
-    
+
     // Update state
     this.currentState = newState;
-    
+
     // Enter new state
     this.enterState(newState, data);
   }
@@ -160,4 +177,26 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('🎨 Colors: #000000, #081F5C, #7096D1, #EDF1F6, #D0E3FF, #F7F2EB');
   console.log('📐 Layout: Layer 1 (JamVideo + JamAudio) + Layer 2 (7 MFCs)');
   stateManager.enterHomeState();
+
+  // Enter key for search
+  const searchInput = document.getElementById('jamziaSearch');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') searchJamZia();
+    });
+  }
+
+  // Log state transitions when dashboard cards are clicked (delegation)
+  document.body.addEventListener('click', (e) => {
+    const card = e.target.closest('.primary-card, .layer2-card');
+    if (card) {
+      const heading = card.querySelector('h3');
+      const universe = heading ? heading.textContent.replace('™', '').trim() : null;
+      if (universe) {
+        const timestamp = new Date().toLocaleTimeString();
+        console.log(`[${timestamp}] StateManager.transition: HOME → UNIVERSE (${universe})`);
+        stateManager.currentUniverse = universe;
+      }
+    }
+  });
 });

@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/jamvideo/?", "dest": "/jamvideo/index.html" },
+    { "src": "/jamaudio/?", "dest": "/jamaudio/index.html" },
+    { "src": "/jamplay/?", "dest": "/jamplay/index.html" },
+    { "src": "/jamlearn/?", "dest": "/jamlearn/index.html" },
+    { "src": "/jamsocial/?", "dest": "/jamsocial/index.html" },
+    { "src": "/jamads/?", "dest": "/jamads/index.html" },
+    { "src": "/jampay/?", "dest": "/jampay/index.html" },
+    { "src": "/jamshop/?", "dest": "/jamshop/index.html" },
+    { "src": "/jamcloud/?", "dest": "/jamcloud/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}

@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JamZia™ — The Everything App | SORME™ AI Search</title>
   <meta name="description" content="JamZia™ — The Everything App. Video, Audio, Gaming, Learning & more.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23081F5C' rx='12'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='%23F7F2EB' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-weight='800'%3EJ%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="JamZia™ — The Everything App">
+  <meta property="og:description" content="Video, Audio, Gaming, Learning & more. 11+ platforms, 100M+ songs, 10K+ movies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.jamzia.tv/">
+  <meta property="og:image" content="https://www.jamzia.tv/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JamZia™ — The Everything App">
+  <meta name="twitter:description" content="Video, Audio, Gaming, Learning & more. 11+ platforms, 100M+ songs, 10K+ movies.">
   <link rel="stylesheet" href="css/jamzia.css">
   <style>
     :root {
@@ -247,6 +256,12 @@
       border-color: var(--blue);
       color: var(--ice);
       background: rgba(112,150,209,0.1);
+      cursor: pointer;
+    }
+
+    .category-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     /* Focus visible for keyboard navigation */
@@ -667,7 +682,7 @@
       </div>
       
       <div class="primary-grid">
-        <a href="/jamvideo/" class="primary-card" onclick="stateManager.navigateToUniverse('JamVideo')">
+        <a href="/jamvideo/" class="primary-card">
           <div class="icon">🎬</div>
           <h3>Jam<span>Video</span>™</h3>
           <p>Original series, films, documentaries, sports & live events — 10K+ movies streaming now</p>
@@ -676,7 +691,7 @@
           <span class="enter-btn">Enter Universe →</span>
         </a>
 
-        <a href="/jamaudio/" class="primary-card" onclick="stateManager.navigateToUniverse('JamAudio')">
+        <a href="/jamaudio/" class="primary-card">
           <div class="icon">🎵</div>
           <h3>Jam<span>Audio</span>™</h3>
           <p>Music streaming, podcasts, radio & audio books — 100M+ songs available</p>
@@ -695,49 +710,49 @@
       </div>
       
       <div class="layer2-grid">
-        <a href="/jamplay/" class="layer2-card" onclick="stateManager.navigateToUniverse('JamPlay')">
+        <a href="/jamplay/" class="layer2-card">
           <div class="icon">🎮</div>
           <h3>Jam<span>Play</span>™</h3>
           <p>AR gaming & tournaments</p>
           <span class="layer2-cta">Enter →</span>
         </a>
 
-        <a href="/jamlearn/" class="layer2-card" onclick="stateManager.navigateToUniverse('JamLearn')">
+        <a href="/jamlearn/" class="layer2-card">
           <div class="icon">🎓</div>
           <h3>Jam<span>Learn</span>™</h3>
           <p>Academy & courses</p>
           <span class="layer2-cta">Enter →</span>
         </a>
 
-        <a href="/jamsocial/" class="layer2-card" onclick="stateManager.navigateToUniverse('JamSocial')">
+        <a href="/jamsocial/" class="layer2-card">
           <div class="icon">💬</div>
           <h3>Jam<span>Social</span>™</h3>
           <p>Community & messaging</p>
           <span class="layer2-cta">Enter →</span>
         </a>
 
-        <a href="/jamads/" class="layer2-card" onclick="stateManager.navigateToUniverse('JamAds')">
+        <a href="/jamads/" class="layer2-card">
           <div class="icon">📢</div>
           <h3>Jam<span>Ads</span>™</h3>
           <p>Advertising platform</p>
           <span class="layer2-cta">Enter →</span>
         </a>
 
-        <a href="/jampay/" class="layer2-card" onclick="stateManager.navigateToUniverse('JamPay')">
+        <a href="/jampay/" class="layer2-card">
           <div class="icon">💎</div>
           <h3>Jam<span>Pay</span>™</h3>
           <p>Wallet & treasury</p>
           <span class="layer2-cta">Enter →</span>
         </a>
 
-        <a href="/jamshop/" class="layer2-card" onclick="stateManager.navigateToUniverse('JamShop')">
+        <a href="/jamshop/" class="layer2-card">
           <div class="icon">🛒</div>
           <h3>Jam<span>Shop</span>™</h3>
           <p>Marketplace & store</p>
           <span class="layer2-cta">Enter →</span>
         </a>
 
-        <a href="/jamcloud/" class="layer2-card" onclick="stateManager.navigateToUniverse('JamCloud')">
+        <a href="/jamcloud/" class="layer2-card">
           <div class="icon">☁️</div>
           <h3>Jam<span>Cloud</span>™</h3>
           <p>Storage & compute</p>
@@ -809,6 +824,35 @@
     // Enter key for search
     document.getElementById('jamziaSearch').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') searchJamZia();
+    });
+    // Category filter buttons
+    const categoryMap = {
+      'Movies': '/jamvideo/',
+      'Music': '/jamaudio/',
+      'Games': '/jamplay/',
+      'Learning': '/jamlearn/',
+      'Social': '/jamsocial/',
+      'Shopping': '/jamshop/'
+    };
+
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.textContent.trim();
+        const path = categoryMap[category];
+
+        // Remove active from all
+        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        if (path) {
+          showToast(`🎯 Filtering for ${category}... redirecting`, 'info');
+          setTimeout(() => {
+            window.location.href = path;
+          }, 600);
+        } else {
+          showToast(`📂 Category: ${category} — explore all platforms`, 'info');
+        }
+      });
     });
   </script>
 </body>
